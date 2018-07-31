@@ -59,7 +59,7 @@ def get_annotations(data_dir, files):
     annotations = {}
     for filename in files:
         tree = ET.parse("%s/Annotations/%s.xml" % (data_dir, filename))
-        annotations[filename] = [[] for _ in range(20)]
+        annotations[filename] = [[] for _ in range(10442)]
         for obj in tree.findall('object'):
             obj_struct = {}
             obj_struct['name'] = obj.find('name').text
@@ -163,7 +163,7 @@ def evaluate(results, data_dir, data_name, ovthresh=0.5, verbose=True):
     annotations = get_annotations(data_dir, files)
     aps = []
 
-    for c in range(20):
+    for c in range(10442):
         ids = []
         scores = []
         boxes = []
@@ -183,7 +183,7 @@ def evaluate(results, data_dir, data_name, ovthresh=0.5, verbose=True):
         aps += [ap]
 
     strs = ''
-    for c in range(20):
+    for c in range(10442):
         strs += "| %6s " % classnames[c][:6]
     strs += '|\n'
 
@@ -201,7 +201,7 @@ def evaluate(results, data_dir, data_name, ovthresh=0.5, verbose=True):
 
 def load_train(data_dir, data_name,
                batch_size=64, shuffle=True,
-               target_size=416, anchors=5, classes=20,
+               target_size=416, anchors=5, classes=10442,
                total_num=None, dtype=np.float32):
     assert cv2 is not None, '`load_train` requires `cv2`.'
     if isinstance(data_dir, list):
