@@ -38,7 +38,7 @@ with open(os.path.join(os.path.dirname(__file__), 'voc.names'), 'r') as f:
 
 def classidx(classname):
 #     return dict((k, i) for (i, k) in enumerate(classnames))[classname]
-    return classname
+    return int(classname)
 
 
 def area(box):
