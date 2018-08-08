@@ -183,20 +183,22 @@ def evaluate(results, data_dir, data_name, ovthresh=0.5, verbose=True):
                                   files, ovthresh)
         aps += [ap]
 
-    strs = ''
-    for c in range(1000):
-        strs += "| %6s " % classnames[c][:6]
-    strs += '|\n'
+    # strs = ''
+    # for c in range(1000):
+    #     strs += "| %6s " % classnames[c][:6]
+    # strs += '|\n'
 
-    for ap in aps:
-        strs += '|--------'
-    strs += '|\n'
+    # for ap in aps:
+    #     strs += '|--------'
+    # strs += '|\n'
 
-    for ap in aps:
-        strs += "| %.4f " % ap
-    strs += '|\n'
+    # for ap in aps:
+    #     strs += "| %.4f " % ap
+    # strs += '|\n'
 
-    strs += "Mean = %.4f" % np.mean(aps)
+    # strs += "Mean = %.4f" % np.mean(aps)
+
+    strs = "Mean = %.4f" % np.mean(aps) 
     return strs
 
 
